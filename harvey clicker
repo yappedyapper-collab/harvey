@@ -1,0 +1,37 @@
+
+
+    // AUTO GENERATION
+    setInterval(() => {
+      juice += perSecond;
+      update();
+    }, 1000);
+
+
+    // SAVE SYSTEM
+    function save() {
+      localStorage.setItem("harveySave", JSON.stringify({
+        juice, clickPower, perSecond, clickCost, autoCost, megaCost
+      }));
+    }
+
+
+    function load() {
+      let saveData = JSON.parse(localStorage.getItem("harveySave"));
+      if (saveData) {
+        juice = saveData.juice;
+        clickPower = saveData.clickPower;
+        perSecond = saveData.perSecond;
+        clickCost = saveData.clickCost;
+        autoCost = saveData.autoCost;
+        megaCost = saveData.megaCost;
+      }
+    }
+
+
+    load();
+    update();
+  </script>
+
+
+</body>
+</html>
